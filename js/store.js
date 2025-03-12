@@ -1,158 +1,53 @@
-async function loadPhone(searchText, isShowAll) {
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/phones?search=${searchText}`
-  );
-
-  const data = await res.json();
-  console.log(data);
-  setTimeout(() => {
-    displayProducts(data.data, isShowAll);
-  }, 1000);
+function handleSearch() {
+  loadingToggle(true);
+  const inputSeaechElement = document.getElementById("searchTextField");
+  const inputSeaechValue = inputSeaechElement.value;
+  loadPhones(inputSeaechValue);
 }
-
-const displayProducts = (data, isShowAll) => {
-  const cardContainer = document.getElementById("card-container-section");
-  // clear the card container before appending child
-  cardContainer.textContent = "";
-
-  const showAllContainer = document.getElementById("showAllBtn");
-
-  if (data.length > 12 && !isShowAll) {
-    showAllContainer.classList.remove("hidden");
-  } else {
-    showAllContainer.classList.add("hidden");
-  }
-
-  if (!isShowAll) {
-    data = data.slice(0, 9);
-  }
-
-  //loop through the data and append each div in the container
-  data.forEach((element) => {
-    // console.log(element);
-
-    const productCard = document.createElement("div");
-    //adding card styles
-    productCard.classList.add("card");
-    productCard.innerHTML = `<div class="card-image">
-            <img src=${element.image} alt="card-image" />
-          </div>
-
-          <h3 class="card-title">${element.phone_name}</h3>
-
-          <p class="card-description">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum, earum.
-          </p>
-
-          <div class="card-price">
-            <span>$</span>
-            <span id="item-price">$999</span>
-          </div>
-
-          <div class="card-button">
-            <button onClick="handleShowDetails('${element.slug}')" class="btn">Show Details</button>
-          </div>`;
-    cardContainer.appendChild(productCard);
-  });
-
-  //hide loading spinner
-  toggleLoadingSpinner(false);
-};
-
-const handleSearch = (isShowAll) => {
-  toggleLoadingSpinner(true);
-  const cardContainer = document.getElementById("card-container-section");
-  // clear the card container before appending child
-  cardContainer.textContent = "";
-  const searchField = document.getElementById("search-input-field");
-  const searchText = searchField.value;
-
-  loadPhone(searchText, isShowAll);
-};
-
-const toggleLoadingSpinner = (isLoading) => {
-  const loadingSpinnerElement = document.getElementById("loading-spinner");
+const loadingToggle = (isLoading) => {
+  const loaderAnimation = document.getElementById("loaderAnimation");
   if (isLoading) {
-    loadingSpinnerElement.classList.remove("hidden");
+    loaderAnimation.classList.remove("hidden");
   } else {
-    loadingSpinnerElement.classList.add("hidden");
+    loaderAnimation.classList.add("hidden");
   }
 };
 
-const handleShowAll = () => {
-  handleSearch(true);
-};
-
-const handleShowDetails = async (productId) => {
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/phone/${productId}`
+const loadPhones = async (searchText) => {
+  const response = await fetch(
+    "https://openapi.programming-hero.com/api/phones?search=" + searchText
   );
-  const data = await res.json();
-  const product = data.data;
 
-  showProductDetails(product);
+  const serverdata = await response.json();
+  displayPhones(serverdata.data);
 };
 
-// show product details in a modal
-const showProductDetails = (phone) => {
-  console.log(phone);
-  //   const phoneName = document.getElementById("show-detail-phone-name");
-  //   phoneName.innerText = phone.name;
+const displayPhones = (data) => {
+  const cardContainer = document.getElementById("card-section");
+  cardContainer.innerHTML = "";
 
-  const showDetailContainer = document.getElementById("show-detail-container");
+  data.forEach((phones) => {
+    const productCard = document.createElement("div");
+    productCard.classList.add("card");
 
-  showDetailContainer.innerHTML = `
-      <div id="modal-image-container">
-        <img src="${phone?.image}" alt="" />
-      </div>
-      <p id='modal-item-name'>${phone?.name}</p>
-      <p class="modal-item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque molestias recusandae vitae itaque quas vero?</p>
-      <p class="modal-item-description"><span>Storage: </span>${
-        phone?.mainFeatures?.storage
-      }</p>
-      <p class="modal-item-description"><span>GPS: </span>${
-        phone?.others?.GPS || "No GPS available"
-      }</p>
-      <p class="modal-item-description"><span>GPS: </span>${
-        phone?.others?.GPS
-          ? phone.others.GPS
-          : "No GPS available in this device"
-      }</p>
-      <p class="modal-item-description"><span>Sensors: </span>${phone?.mainFeatures?.sensors?.join(
-        ", "
-      )}</p>
-      <p class="modal-item-description"><span>Storage: </span>${
-        phone?.mainFeatures?.storage
-      }</p>
-      <p class="modal-item-description"><span>Storage: </span>${
-        phone?.mainFeatures?.storage
-      }</p>
-      <p class="modal-item-description"><span>Storage: </span>${
-        phone?.mainFeatures?.storage
-      }</p>
-      <p class="modal-item-description"><span>Storage: </span>${
-        phone?.mainFeatures?.storage
-      }</p>
-  `;
+    productCard.innerHTML = ` <div id="card-image">
+            <img src=${phones.image} alt="iphone image">
+        </div>
+        
+        <h3 class="card-title">${phones.phone_name}</h3>
 
-  // show the modal
+        <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, laboriosam?</p>
 
-  const modal = document.getElementById("myModal");
+        <div class="card-price">
+            <span>$</span>
+            <span id="item-price">999</span>
+        </div>
 
-  modal.style.display = "block";
+        <div class="card-button">
+            <button class="btn">Show Details</button>
+        </div>`;
 
-  //close the modal
-  document.getElementById("closeBtn").addEventListener("click", function () {
-    modal.style.display = "none";
+    cardContainer.appendChild(productCard);
+    loadingToggle(false);
   });
-
-  // When the user clicks anywhere outside of the modal, close it
-
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
 };
-
-// loadPhone();

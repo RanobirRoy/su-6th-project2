@@ -3,135 +3,130 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mobile store bd</title>
+    <title>My Mobile Store</title>
+    <link rel="stylesheet" href="./style.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
     <script
-      src="https://kit.fontawesome.com/946cabd75f.js"
+      src="https://kit.fontawesome.com/ae5d7039ca.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
     <header>
-      <h2>Mobile Store</h2>
+      <h1>My Mobile Store</h1>
       <button class="btn">Sign Up</button>
     </header>
 
     <main>
-      <!-- section 1 -->
-      <section id="section-1">
-        <h1>Shop the latest version of Mobile</h1>
+      <!-- highlights Section -->
+
+      <section id="highlightSection">
+        <h2>My Mobile Store</h2>
         <p>
-          Mobile Store is a premium retail chain offering awesome products like android, iPhones, iPads, MacBooks, accessories, and expert customer support.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti qui
+          ex quo expedita, cupiditate architecto dolore voluptates sit libero
+          sequi!
         </p>
-        <div id="buy-now-btn-container">
+
+        <div id="buy_now_button">
           <button class="btn">Buy Now</button>
         </div>
       </section>
 
-      <!-- section-2 -->
-      <section id="section-2">
-        <img src="./assets/cover-image 2.png" alt="cover-image" />
+      <!-- Cover Image Section -->
+
+      <section id="cover-image-section">
+        <img src="./assets/cover-image.png" alt="Iphone Image" />
       </section>
 
-      <!-- section-3 (Search) -->
-      <section id="section-3">
-        <h2>Search Your Phone</h2>
+      <!-- Search Section -->
+
+      <section id="search-section">
+        <h2>Search your Phone</h2>
 
         <div id="search-container">
           <div id="search-bar">
-            <i
-              style="margin-right: 10px"
-              class="fa fa-solid fa-magnifying-glass"
-            ></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
             <input
               type="text"
-              name="search"
-              id="search-input-field"
+              name=""
               placeholder="Search Your Phone"
+              id="searchTextField"
             />
           </div>
 
-          <div id="search-button">
-            <button onclick="handleSearch()" class="btn">Search</button>
+          <div id="search-btn">
+            <button onclick=" handleSearch()" class="btn">Search</button>
           </div>
         </div>
       </section>
-
-      <!-- spinner section -->
-      <section
-        style="
-          width: 80%;
-          margin: 0 auto;
-          display: flex;
-          justify-content: center;
-        "
-      >
-        <div id="loading-spinner" class="loader hidden"></div>
+      <section id="loader_section">
+        <div id="loaderAnimation" class="loader hidden"></div>
       </section>
-
       <!-- card section -->
-      <section id="card-container-section">
-        <!--demo card -->
+
+      <section id="card-section">
+        <!-- card -->
         <div class="card">
-          <div class="card-image">
-            <img src="./assets/OnePlus Ace 5 Pro.webp" alt="card-image" />
+          <div id="card-image">
+            <img src="./assets/OnePlus Ace 5 Pro.webp" alt="iphone image" />
           </div>
 
           <h3 class="card-title">OnePlus Ace 5 Pro</h3>
 
           <p class="card-description">
-            There are many variations of passages of available, but the majority
-            have suffered
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
+            laboriosam?
           </p>
 
           <div class="card-price">
             <span>$</span>
-            <span id="item-price">850</span>
+            <span id="item-price">985</span>
           </div>
 
           <div class="card-button">
             <button class="btn">Show Details</button>
           </div>
         </div>
-        <!--demo card -->
+        <!-- card -->
         <div class="card">
-          <div class="card-image">
-            <img src="./assets/Vivo V50.webp" alt="card-image" />
+          <div id="card-image">
+            <img src="./assets/Tecno Phantom V Fold2.webp" alt="iphone image" />
+          </div>
+
+          <h3 class="card-title">Tecno Phantom V</h3>
+
+          <p class="card-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
+            laboriosam?
+          </p>
+
+          <div class="card-price">
+            <span>$</span>
+            <span id="item-price">799</span>
+          </div>
+
+          <div class="card-button">
+            <button class="btn">Show Details</button>
+          </div>
+        </div>
+        <!-- card -->
+        <div class="card">
+          <div id="card-image">
+            <img src="./assets/Vivo V50.webp" alt="iphone image" />
           </div>
 
           <h3 class="card-title">Vivo V50</h3>
 
           <p class="card-description">
-            There are many variations of passages of available, but the majority
-            have suffered
-          </p>
-
-          <div class="card-price">
-            <span>$</span>
-            <span id="item-price">999</span>
-          </div>
-
-          <div class="card-button">
-            <button class="btn">Show Details</button>
-          </div>
-        </div>
-        <!--demo card -->
-        <div class="card">
-          <div class="card-image">
-            <img src="./assets/Honor Magic V3.webp" alt="card-image" />
-          </div>
-
-          <h3 class="card-title">Honor Magic V3</h3>
-
-          <p class="card-description">
-            There are many variations of passages of available, but the majority
-            have suffered
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
+            laboriosam?
           </p>
 
           <div class="card-price">
@@ -144,83 +139,66 @@
           </div>
         </div>
       </section>
-
-      <!-- show all button -->
-      <section id="showAll-btn-section">
-        <button onclick="handleShowAll()" id="showAllBtn" class="btn hidden">
-          Show All Results
-        </button>
-      </section>
-
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span id="closeBtn">&times;</span>
-          <!-- <p id="show-detail-phone-name">This is a simple modal.</p> -->
-
-          <div id="show-detail-container"></div>
+      <section class="footer section_margin">
+        <div class="upper_footer">
+          <div class="store_text">
+            <h1>My Mobile Store</h1>
+            <p>
+              Learn how to use
+              <a href="#">My Mobile store</a>
+            </p>
+          </div>
+          <div class="store_icons">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              style="color: #2197f9"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="https://www.x.com" target="_blank" style="color: #000"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              style="color: red"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <button class="btn">Join premium</button>
+          </div>
         </div>
-      </div>
+        <div class="lower_footer">
+          <div class="lower_links_group">
+            <a href="#">Products</a>
+            <a href="#">Browser Job</a>
+            <a href="#">Remote Job</a>
+            <a href="#">Company Job</a>
+            <a href="#">Startup</a>
+          </div>
+          <div class="lower_links_group">
+            <a href="#">Products</a>
+            <a href="#">Browser Job</a>
+            <a href="#">Remote Job</a>
+            <a href="#">Company Job</a>
+            <a href="#">Startup</a>
+          </div>
+          <div class="lower_links_group">
+            <a href="#">Products</a>
+            <a href="#">Browser Job</a>
+            <a href="#">Remote Job</a>
+            <a href="#">Company Job</a>
+            <a href="#">Startup</a>
+          </div>
+          <div class="lower_links_group">
+            <a href="#">Products</a>
+            <a href="#">Browser Job</a>
+            <a href="#">Remote Job</a>
+            <a href="#">Company Job</a>
+            <a href="#">Startup</a>
+          </div>
+        </div>
+      </section>
     </main>
-
-    <footer>
-      <!-- Foter section start -->
-      <section id="upper-footer-section">
-        <div>
-          <h2 style="font-size: 45px; margin-bottom: 10px">Mobile Store</h2>
-          <p style="color: #706f6f; font-size: 18px; font-weight: 600">
-            Learn How to use API Store
-          </p>
-        </div>
-
-        <div id="footer-social-icons">
-          <a href="">
-            <img src="./assets/facebook.png" alt="facebook" />
-          </a>
-          <a href="">
-            <img src="./assets/twitter.png" alt="x" />
-          </a>
-          <a href="">
-            <img src="./assets/instagram.png" alt="instagram" />
-          </a>
-
-          <button class="btn">Join Premium</button>
-        </div>
-      </section>
-
-      <!-- footer links -->
-      <section id="footer-nav">
-        <div>
-          <a href=""><span>Products</span></a>
-          <a href=""><span>Browse Jobs</span></a>
-          <a href=""><span>Remote Jobs</span></a>
-          <a href=""><span>Company Jobs</span></a>
-          <a href=""><span>Startup Jobs</span></a>
-        </div>
-        <div>
-          <a href=""><span>Products</span></a>
-          <a href=""><span>Browse Jobs</span></a>
-          <a href=""><span>Remote Jobs</span></a>
-          <a href=""><span>Company Jobs</span></a>
-          <a href=""><span>Startup Jobs</span></a>
-        </div>
-        <div>
-          <a href=""><span>Products</span></a>
-          <a href=""><span>Browse Jobs</span></a>
-          <a href=""><span>Remote Jobs</span></a>
-          <a href=""><span>Company Jobs</span></a>
-          <a href=""><span>Startup Jobs</span></a>
-        </div>
-        <div>
-          <a href=""><span>Products</span></a>
-          <a href=""><span>Browse Jobs</span></a>
-          <a href=""><span>Remote Jobs</span></a>
-          <a href=""><span>Company Jobs</span></a>
-          <a href=""><span>Startup Jobs</span></a>
-        </div>
-      </section>
-    </footer>
 
     <script src="./js/store.js"></script>
   </body>
